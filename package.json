@@ -1,0 +1,29 @@
+{
+  "name": "express_intro",
+  "version": "1.0.0",
+  "description": "Intro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EStanys/Express_intro.git"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "E.S.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EStanys/Express_intro/issues"
+  },
+  "homepage": "https://github.com/EStanys/Express_intro#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

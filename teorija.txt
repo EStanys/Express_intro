@@ -1,0 +1,4 @@
+Express - backend serveris(kaip node).
+
+ą. Instaliuojam npm: npm init
+2. Instaliuojam express is npm'o: npm install express
