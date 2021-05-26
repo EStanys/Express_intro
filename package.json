@@ -1,25 +1,25 @@
 {
-  "name": "express_intro",
+  "name": "expressintro",
   "version": "1.0.0",
-  "description": "Intro",
+  "description": "We start making back end",
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EStanys/Express_intro.git"
+    "url": "git+https://github.com/MariusCodeAcademy/js3_expressIntro.git"
   },
   "keywords": [
     "express",
     "node"
   ],
-  "author": "E.S.",
+  "author": "M.K.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EStanys/Express_intro/issues"
+    "url": "https://github.com/MariusCodeAcademy/js3_expressIntro/issues"
   },
-  "homepage": "https://github.com/EStanys/Express_intro#readme",
+  "homepage": "https://github.com/MariusCodeAcademy/js3_expressIntro#readme",
   "dependencies": {
     "express": "^4.17.1"
   },

@@ -1,36 +1,44 @@
-//sitas failas niekada neturetu pakliuti pas vartotoja, jei viskas gerai padaryta, tai galima saugot jautrius dalykus. Visa tai bus nutolusiam servery
+// isitraukiam express is npm
+const express = require('express');
+const path = require('path');
 
-const { response } = require('express');
-const express = require('express'); // isitraukiam express is npm
-const app = express(); // sukuriam express objekta
-const path = require('path'); // kad galetume kelia gaut response
+const { people } = require('./js/people');
 
-const { people } = require('./js/poeple');
+// sukuriam express app objekta
+const app = express();
 
 // current paths
-const htmlPath = path.join(__dirname, 'html'); // nurodysim kelia iki index.html failo
-const indexPath = path.join(__dirname, 'html', 'index.html'); // nurodysim kelia iki index.html failo
-const aboutPath = path.join(__dirname, 'html', 'about.html'); // nurodysim kelia iki index.html failo
-console.log(' indexPath', indexPath);
+const htmlPath = path.join(__dirname, 'html');
+const indexPath = path.join(__dirname, 'html', 'index.html');
+const aboutPath = path.join(__dirname, 'html', 'about.html');
+// console.log(' indexPath', indexPath);
 
-// routes aprasom:
-// app.get('/', (request, response) => {
-//   response.sendFile(indexPath);
-// });
-// //   response.send('<h1> Hello from Express</h1>');
-// // http://localhost:3000/ gausim index.html faila. responsu issiunciam is serverio index.html faila
+// routes
+app.get('/', (req, res) => res.sendFile(indexPath));
+// app.get('/about', (req, res) => res.sendFile(aboutPath));
 
-// app.get('/about', (req, resp) => resp.sendFile(aboutPath));
-// i narsykle ivedus adresa su /about gale, gausim tai kas bus response parasyta
-
-//our API
-app.get('/api/peope', (req, res) => {
+// our api
+app.get('/api/people', (req, res) => {
+  // grazinam json
   res.json(people);
 });
+// get one people
+app.get('/api/person/:id', (req, res) => {
+  const paramId = req.params.id;
 
-// kai turim papke kurions failus norim pasiekti is narsykles pagal pavadinima
-// nustatom static papke
-// app.use(express.static(htmlPath)); // http://localhost:3000/ po / kurio failo pavadinima irasysim i ta faila ir atidarys
+  const found = people.find((p) => p.id === paramId);
 
-// paleidzia serveri ir klausosi httm ir kt requestu nurodytu portu
-app.listen(3000, () => console.log('Server is running')); //portas, kuriam naudosim (klausom porto. Funkcija - ka atliksim kol klausysim porto)
+  if (!found) {
+    res.status(404).json({ errorMsg: `sorry person with id ${paramId} was not found` });
+  }
+
+  // grazinam json
+  res.json(found);
+});
+
+// kai turim papke kurios failus norim pasiekti is narsykles pagal pavadinimas
+// nustatom static papke.
+// app.use(express.static(htmlPath));
+
+// paleidzia serveri ir klausosi http ir kt requestu nurodytu portu
+app.listen(3000, () => console.log('server is running'));

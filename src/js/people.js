@@ -67,4 +67,6 @@ const people = [
   },
 ];
 
-module.exports = { people };
+module.exports = {
+  people,
+};
