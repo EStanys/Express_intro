@@ -36,6 +36,7 @@ app.get('/api/person/:id', (req, res) => {
   res.json(found);
 });
 
+//
 // kai turim papke kurios failus norim pasiekti is narsykles pagal pavadinimas
 // nustatom static papke.
 // app.use(express.static(htmlPath));
