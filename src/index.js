@@ -23,6 +23,11 @@ console.log(' indexPath', indexPath);
 // app.get('/about', (req, resp) => resp.sendFile(aboutPath));
 // i narsykle ivedus adresa su /about gale, gausim tai kas bus response parasyta
 
+//our API
+app.get('/api/peope', (req, res) => {
+  res.json(people);
+});
+
 // kai turim papke kurions failus norim pasiekti is narsykles pagal pavadinima
 // nustatom static papke
 // app.use(express.static(htmlPath)); // http://localhost:3000/ po / kurio failo pavadinima irasysim i ta faila ir atidarys
