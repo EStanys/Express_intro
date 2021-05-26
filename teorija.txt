@@ -1,4 +1,17 @@
 Express - backend serveris(kaip node).
 
-ą. Instaliuojam npm: npm init
+1. Instaliuojam npm: npm init
 2. Instaliuojam express is npm'o: npm install express
+3. instaliuojam nodemon https://www.npmjs.com/package/nodemon : 
+npm install -g nodemon                (globaliai)
+npm install --save-dev nodemon        (development metu matomas)
+
+4.//sitas failas niekada neturetu pakliuti pas vartotoja, jei viskas gerai padaryta, tai galima saugot jautrius dalykus. Visa tai bus nutolusiam servery
+index.js faile:
+
+const express = require('express'); // isitraukiam express is npm
+const app = express(); // sukuriam express objekta
+
+app.listen(3000); //portas, kuriam naudosim
+
+5. Paleidziam severi: node src/index.js
