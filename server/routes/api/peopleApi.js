@@ -38,4 +38,20 @@ router.post('/', (req, res) => {
   res.json(people);
 });
 
+// edit one person Endpoint
+router.put('/:id', (req, res) => {
+  console.log('executing put request');
+  const paramId = req.params.id;
+
+  const found = people.find((p) => p.id === paramId);
+
+  if (!found) {
+    res.status(404).json({ errorMsg: `sorry person with id ${paramId} was not found` });
+  }
+
+  // jei viskas ok atnaujinam zmogu
+  found.name = req.body.name;
+  found.surname = req.body.surname;
+  res.json({ msg: 'User was updated', updatetUser: found });
+});
 module.exports = router;
