@@ -3,14 +3,14 @@ const router = express.Router();
 
 let personId = 6;
 
-const people = require('../../js/peopleData');
+let people = require('../../js/peopleData');
 
 // get all people Endpoint
 router.get('/', (req, res) => {
   // grazinam json
   res.json(people);
 });
-// get one people Endpoint
+// get one person Endpoint
 router.get('/:id', (req, res) => {
   const paramId = req.params.id;
 
@@ -48,10 +48,27 @@ router.put('/:id', (req, res) => {
   if (!found) {
     res.status(404).json({ errorMsg: `sorry person with id ${paramId} was not found` });
   }
-
-  // jei viskas ok atnaujinam zmogu
-  found.name = req.body.name;
-  found.surname = req.body.surname;
+  const { name, surname } = req.body;
+  // jei viskas ok atnaujinam
+  found.name = name || found.name; // sutrumpinimas
+  found.surname = surname ? surname : found.surname;
   res.json({ msg: 'User was updated', updatetUser: found });
 });
+
+// delete one person Endpoint
+router.delete('/:id', (req, res) => {
+  const paramId = req.params.id;
+  // randam ka norim isrtrinti pagal id
+  const found = people.find((p) => p.id === paramId);
+
+  if (!found) {
+    res.status(404).json({ errorMsg: `sorry person with id ${paramId} was not found` });
+  }
+  // paliekam visus objektus isskyrus kuri surandam
+  people = people.filter((p) => p.id !== paramId);
+
+  // grazinam json
+  res.json({ msg: 'delete was successfull', deletedPerson: found, people });
+});
+
 module.exports = router;

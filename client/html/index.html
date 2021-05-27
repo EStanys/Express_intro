@@ -22,15 +22,12 @@
           .then((data) => console.log(' data', data))
           .catch((err) => console.error(err.message));
       });
+
       // send post data fetch json
       document.getElementById('send-data').addEventListener('click', () => {
-        console.log('sending post data');
+        console.log('Deleting post data');
         fetch('/api/people/1', {
-          method: 'PUT',
-          body: JSON.stringify({
-            name: 'James',
-            surname: 'Jameson',
-          }),
+          method: 'DELETE',
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
