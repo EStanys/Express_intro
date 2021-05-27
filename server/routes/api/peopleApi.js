@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+let personId = 6;
+
 const people = require('../../js/peopleData');
 
 // get all people Endpoint
@@ -25,8 +27,15 @@ router.get('/:id', (req, res) => {
 // Create one people Endpoint
 // gauti duomenis is vartojo formos arba json pavidalu ir sukuri nauja partotoja tarp savo people
 router.post('/', (req, res) => {
-  console.log(' req.body', req.body);
-  res.send(req.body);
+  console.log(' req.body', req.body); //{"name":"James","surname":"Jameson"}
+  const newPerson = {
+    id: (++personId).toString(),
+    name: req.body.name,
+    surname: req.body.surname,
+  };
+  people.push(newPerson);
+  // prideti nauja people objekta
+  res.json(people);
 });
 
 module.exports = router;
