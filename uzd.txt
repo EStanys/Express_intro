@@ -1,0 +1,17 @@
+1. pasikurti nauja projekta inicijuoti git + github
+
+2. isidiegti express 
+
+3. pasileisti serveri su .listen()
+
+4. pasidaryti kad serveris nuejus i /posts, /about /contact
+atidarytu atitinkamus html puslapius 
+
+5. prisideti cars masinu masyva kuriame yra masinu objektai bent 5.
+kiekvienas objektas turi unikalu id ir dar 2-3 savybes
+
+6. sukurti api endpointa '/api/cars' kuris grazina json pavidalu 
+cars masinas
+
+7. fronte index.html prisijungti js faila ir jame aprasyti kad 
+gauti duomenis is '/api/cars' ir atrinkti tik pirmas 3 masinas
