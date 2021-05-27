@@ -4,7 +4,7 @@
   "description": "We start making back end",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",

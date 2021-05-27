@@ -9,8 +9,8 @@ const app = express();
 
 // current paths
 const htmlPath = path.join(__dirname, 'html');
-const indexPath = path.join(__dirname, 'html', 'index.html');
-const aboutPath = path.join(__dirname, 'html', 'about.html');
+const indexPath = path.join(__dirname, '../client', 'html', 'index.html');
+const aboutPath = path.join(__dirname, '../client', 'html', 'about.html');
 // console.log(' indexPath', indexPath);
 
 // routes
